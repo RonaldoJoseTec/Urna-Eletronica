@@ -37,9 +37,12 @@ function urnaeletronica() {
         } else if (opcao == 8) {
             nulo++;
             console.log('você votou nulo');
+        } else if(opcao == 0) {
+            prompt('deseja encerrar a votação');
+            
         }
-
     } while (opcao != 0);
+
     contador = contador - 1 ;
     console.log('contagem', contador);
     console.log('total de votos do ', nome1, candidato1);
@@ -47,6 +50,21 @@ function urnaeletronica() {
     console.log('total de votos do ', nome3, candidato3);
     console.log('total de votos brancos', branco);
     console.log('total de votos nulos ', nulo);
+
+    const totaldevotos = (candidato1 + candidato2 + candidato3 + branco + nulo);
+    console.log('total dos votos', totaldevotos);
+
+    console.log('relação do candidato', nome1, candidato1);
+    console.log('percentual de votos do candidato1', (candidato1 / totaldevotos) * 100 +'%');
+    console.log('relação do candidato', nome2, candidato2);
+    console.log('percentual de votos do candidato2', (candidato2 / totaldevotos) * 100 +'%');
+    console.log('relação do candidato', nome3, candidato3);
+    console.log('percentual de votos do candidato3', (candidato3 / totaldevotos) * 100 +'%');
+    console.log('relação de votos em branco', branco);
+    console.log('percentual de votos em branco ', (branco / totaldevotos) * 100 +'%');
+    console.log('relação de votos nulos', nulo);
+    console.log('percentual de votos nulos', (nulo / totaldevotos) * 100 +'%');
+    
 
     if (candidato1 > candidato2 && candidato1 > candidato3) {
         console.log('o vencedor é', nome1);
