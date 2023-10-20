@@ -17,7 +17,7 @@ function urnaeletronica() {
     let ganhador = true;
     let encerrarVotacao;
     let confirmacaoDeVoto = false;
-    //const AudioConfirmacao = Audio
+    //const AudioConfirmacao = ;
 
     console.log('Ininciando o programa');
 
@@ -51,27 +51,44 @@ function urnaeletronica() {
 
         if (opcaoDeVoto === 1) {
             confirmacaoDeVoto = confirm('Confirme seu voto em: ' + nome1);
+            if (confirmacaoDeVoto) {
             candidato1++;
             console.log('você votou no candidato1: ' +nome1);
             alert('voto computado com sucesso para ' +nome1);
-
-        
-            
-
-
+            } else {
+                contadorDeVotos--;
+            }
 
         } else if (opcaoDeVoto === 2) {
+            confirmacaoDeVoto = confirm('Confirme seu voto em: ' + nome2);
+            if (confirmacaoDeVoto) {
             candidato2++;
             console.log('você votou no candidato2: ' +nome2);
             alert('voto computado com sucesso para ' +nome2);
+            } else {
+                contadorDeVotos--;
+            }
+
         } else if (opcaoDeVoto === 3) {
+            confirmacaoDeVoto = confirm('Confirme seu voto em: ' + nome3);
+            if (confirmacaoDeVoto) {
             candidato3++;
             console.log('você votou no candidato3: ' +nome3);
             alert('voto computado com sucesso para ' +nome3);
+            } else {
+                contadorDeVotos--;
+            }
+
         } else if (opcaoDeVoto === 5) {
+            confirmacaoDeVoto = confirm('Confirme seu voto Branco');
+            if (confirmacaoDeVoto) {
             branco++;
-            console.log('você votou em branco');
-            alert('voto computado com sucesso !');
+             console.log('você votou em branco');
+             alert('voto computado com sucesso !');
+            } else {
+                contadorDeVotos--;
+            }
+
         } else if (opcaoDeVoto === 0) {
             return;
         } else if (opcaoDeVoto === senha) {
