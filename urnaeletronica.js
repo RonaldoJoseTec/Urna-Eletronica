@@ -16,6 +16,8 @@ function urnaeletronica() {
     let votosGanhador;
     let ganhador = true;
     let encerrarVotacao;
+    let confirmacaoDeVoto = false;
+    //const AudioConfirmacao = Audio
 
     console.log('Ininciando o programa');
 
@@ -48,17 +50,24 @@ function urnaeletronica() {
         contadorDeVotos++;
 
         if (opcaoDeVoto === 1) {
+            confirmacaoDeVoto = confirm('Confirme seu voto em: ' + nome1);
             candidato1++;
-            console.log('você votou no candidato1');
-            alert('voto computado com sucesso !');
+            console.log('você votou no candidato1: ' +nome1);
+            alert('voto computado com sucesso para ' +nome1);
+
+        
+            
+
+
+
         } else if (opcaoDeVoto === 2) {
             candidato2++;
-            console.log('você votou no candidato2');
-            alert('voto computado com sucesso !');
+            console.log('você votou no candidato2: ' +nome2);
+            alert('voto computado com sucesso para ' +nome2);
         } else if (opcaoDeVoto === 3) {
             candidato3++;
-            console.log('você votou no candidato3');
-            alert('voto computado com sucesso !');
+            console.log('você votou no candidato3: ' +nome3);
+            alert('voto computado com sucesso para ' +nome3);
         } else if (opcaoDeVoto === 5) {
             branco++;
             console.log('você votou em branco');
@@ -104,7 +113,7 @@ function urnaeletronica() {
         console.log('relação de votos em branco', branco);
         console.log('percentual de votos em branco ', ((branco / contadorDeVotos * 100).toFixed(2)) + '%');
         console.log('relação de votos nulos', nulo);
-        console.log('percentual de votos nulos', ((nulo / contadorDeVotos).toFixed(2)) * 100 + '%');
+        console.log('percentual de votos nulos', ((nulo / contadorDeVotos * 100).toFixed(2)) + '%');
 
         //determinando o ganhador
         if (candidato1 > candidato2 && candidato1 > candidato3) {
