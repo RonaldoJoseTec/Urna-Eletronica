@@ -1,5 +1,5 @@
 function urnaeletronica() {
-
+    
     //zona das variáveis
     let opcaoDeVoto = 0;
     let contadorDeVotos = 0;
@@ -17,12 +17,14 @@ function urnaeletronica() {
     let ganhador = true;
     let encerrarVotacao;
     let confirmacaoDeVoto = false;
-    //const AudioConfirmacao = ;
+    //const AudioConfirmacao = Audio();
+    const dataInicio = new Date();
+    const dataFim = new Date();
 
-    console.log('Ininciando o programa');
+    console.log('Iniciando o programa às: ' + dataInicio.toLocaleString());
 
-    console.clear();
-    console.log(' *** Iniciando as configurações da URNA *** ');
+   // console.clear();
+    console.log(' *** Iniciando as configurações da URNA *** ' );
 
     senha = parseInt(prompt('Digite a senha de segurança'));
 
@@ -115,6 +117,7 @@ function urnaeletronica() {
 
     // Saída para o usuário: boletim de urna
     console.clear();
+    console.log('Programa iniciado às: ' + dataInicio.toLocaleString());
     console.log('>>> BOLETIM DE URNA <<<');
     console.log('contagem total dos votos', contadorDeVotos);
 
@@ -164,7 +167,6 @@ function urnaeletronica() {
     console.log('total de votos brancos', branco);
     console.log('total de votos nulos ', nulo);
 
-    console.log('Finalizando o programa');
-
+    console.log('Finalizando o programa às: ' + dataFim.toLocaleString ());
 }
 urnaeletronica()
