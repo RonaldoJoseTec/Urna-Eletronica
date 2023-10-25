@@ -1,5 +1,9 @@
+function dataFim (){
+    const data = new Date();
+    return data ;
+}
+
 function urnaeletronica() {
-    
     //zona das variáveis
     let opcaoDeVoto = 0;
     let contadorDeVotos = 0;
@@ -19,8 +23,7 @@ function urnaeletronica() {
     let confirmacaoDeVoto = false;
     //const AudioConfirmacao = Audio();
     const dataInicio = new Date();
-    const dataFim = new Date();
-
+  
     console.log('Iniciando o programa às: ' + dataInicio.toLocaleString());
 
    // console.clear();
@@ -167,6 +170,7 @@ function urnaeletronica() {
     console.log('total de votos brancos', branco);
     console.log('total de votos nulos ', nulo);
 
-    console.log('Finalizando o programa às: ' + dataFim.toLocaleString ());
+    console.log('Finalizando o programa às: ' + dataFim().toLocaleString());
+    
 }
 urnaeletronica()
