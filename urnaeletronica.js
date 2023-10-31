@@ -1,3 +1,33 @@
+/*function dataHoraAtual() {
+    const dataHora = new Date();
+
+    return `${dataHora.getDate()}/${dataHora.getMonth() + 1}/${dataHora.getFullYear()} ${dataHora.getHours()}:${dataHora.getMinutes()}:${dataHora.getSeconds()} ${dataHora.getMilliseconds()}ms`;
+}*/
+
+function verificarIntegridadeUrna() {
+
+    // Biblioteca CryptoJS: https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js
+    //5f098a8f62aa0a67ea4a41c087f3728f6bc76a9b48ba64e1f198c3e5182c7abd
+
+    fetch('./urnaeletronica.js')
+        .then(res => res.text())
+        .then(res => CryptoJS.SHA256(res).toString())
+        .then(hashUrnaAtual => {
+            fetch('./hashpronto')
+                .then(res => res.text())
+                .then(hashpronto => {
+                    if (hashUrnaAtual === hashpronto) {
+                        console.log('Hash verificado, urna íntegra.')
+                    } else {
+                        console.log('HASHES DIFERENTES, URNA ADULTERADA!');
+                        console.log(`Hash esperado: ${hashpronto}`);
+                        console.log(`Hash da urna: ${hashUrnaAtual}`);
+                    }
+                })
+        }); 
+
+}
+
 function dataFim (){
     const data = new Date();
     return data ;
@@ -47,11 +77,13 @@ function urnaeletronica() {
         for (i=0; i<=4; i++) {
             //for (j=0; j<=4; j++) {}
                 console.log('Candidaturas: ' + matrizCandidato[i]);
-            }
-        
-        //nome1 = prompt('Digite o nome do candidato 1');
-        //nome2 = prompt('Digite o nome do candidato 2');
-        //nome3 = prompt('Digite o nome do candidato 3');
+           }
+
+                /*nome1 = prompt('Digite o nome do candidato 1');
+                nome2 = prompt('Digite o nome do candidato 2');
+                nome3 = prompt('Digite o nome do candidato 3');
+                nome4 = prompt('Digite o nome do candidato 4');
+                nome5 = prompt('Digite o nome do candidato 5');*/
 
         /*console.log('>>> Nomes dos Candidatos <<<');
         console.log('|1| Candidato 1: ' + nome1);
@@ -220,6 +252,8 @@ function urnaeletronica() {
     console.log('total de votos para ', nome5[1], candidato5);
     console.log('total de votos brancos', branco);
     console.log('total de votos nulos ', nulo);
+
+    verificarIntegridadeUrna();
 
     console.log('Finalizando o programa às: ' + dataFim().toLocaleString());
     
