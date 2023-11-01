@@ -33,7 +33,7 @@ function dataFim (){
     return data ;
 }
 
-function urnaeletronica() {
+async function urnaeletronica() {
     //zona das variáveis
     let opcaoDeVoto = 0;
     let contadorDeVotos = 0;
@@ -70,14 +70,22 @@ function urnaeletronica() {
     //console.clear();
     console.log(' *** Iniciando as configurações da URNA *** ' );
 
-    senha = parseInt(prompt('Digite a senha de segurança'));
-
     
-    do {
-        for (i=0; i<=4; i++) {
+    async function preCarregamento() { 
+        await fetch('./dadosCandidatura.json')
+        .then(res => res.json())
+        .then(res =>console.log(res));
+    }
+    
+    await preCarregamento();
+    
+    senha = parseInt(prompt('Digite a senha de segurança'));
+    
+    //do {
+       // for (i=0; i<=4; i++) {
             //for (j=0; j<=4; j++) {}
-                console.log('Candidaturas: ' + matrizCandidato[i]);
-           }
+                //console.log('Candidaturas: ' + matrizCandidato[i]);
+         // }
 
                 /*nome1 = prompt('Digite o nome do candidato 1');
                 nome2 = prompt('Digite o nome do candidato 2');
@@ -92,7 +100,7 @@ function urnaeletronica() {
         console.log('|4| Candidato 4: ' + nome4);
         console.log('|5| Candidato 5: ' + nome5);*/
 
-    } while (!confirm('Se os nomes dos candidatos estiverem corretos, clique em "Ok" para iniciar a votação ou "Cancelar" para corrigir as candidaturas'));
+    //} while (!confirm('Se os nomes dos candidatos estiverem corretos, clique em "Ok" para iniciar a votação ou "Cancelar" para corrigir as candidaturas'));
 
     do {
         opcaoDeVoto = parseInt(prompt('digite sua opção \n'
