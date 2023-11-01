@@ -1,0 +1,11 @@
+{
+    "Candidaturas":[
+        {"Nº": 17 , "Candidato": "Alfa"},
+        {"Nº": 23 , "Candidato": "Beta"}, 
+        {"Nº": 35 , "Candidato": "Charlie"},
+        {"Nº": 41 , "Candidato": "Dom"},
+        {"Nº": 52 , "Candidato": "Esquiel"}
+    ]
+}
+
+
